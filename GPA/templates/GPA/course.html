@@ -1,0 +1,20 @@
+{% if semester.term_set.all %}
+    <h1>Semester {{semester.semester}} Term {{term.term}}</h1>
+    <ul>
+        <li>courseID courseTitle grade</li>
+        {% for course in term.course_set.all %}
+            <li>[{{course.course_id}}] {{course.course_title}} : {{course.grade}} </li>
+        {% endfor %}
+    </ul>
+
+        <form action="add/" method="post">
+            {% csrf_token %}
+            Course ID: <input type="number" name="id" /></br>
+            Course title: <input type="text" name="title" maxlength=25 /></br>
+            Grade: <input  name ="grade" type="text" maxlength=1 /></br>
+            Credit: <input type="number" name="credit" /></br>
+            <input type="submit" value="add">
+        </form>
+{% else %}
+    <h1>Noooo</h1>
+{% endif %}
