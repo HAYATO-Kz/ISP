@@ -2,7 +2,7 @@
     <h1>Semester </h1>
     <ul>
         {% for semester in semester_all %}
-            <li><a href="{% url 'term' semester.id %}">Semester {{semester.semester}}</a></li>
+            <li><a href="{% url 'GPA:term' semester.id %}">Semester {{semester.semester}}</a></li>
         {% endfor %}
     </ul>
 {% else %}
